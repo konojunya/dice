@@ -3,8 +3,15 @@ name = "dice"
 version = "0.0.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 http = "0.1"
 vercel_lambda = "*"
+rand = "0.8.5"
+
+  [dependencies.reqwest]
+  version = "0.11"
+  features = [ "blocking", "json" ]
+
+[[bin]]
+name = "index"
+path = "/Users/konojunya/.ghq/src/github.com/konojunya/dice/api/index.rs"
