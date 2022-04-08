@@ -7,11 +7,11 @@ fn handler(_: Request) -> Result<impl IntoResponse, VercelError> {
     let mut rng = thread_rng();
 
     let response = Response::builder()
-        .status(StatusCode::FOUND)
-        .header("Location", format!("/{}.png", rng.gen_range(1..7)))
+        .status(StatusCode::OK)
+        .header("Content-Type", "text/plain")
         // https://vercel.com/docs/concepts/edge-network/caching
         .header("Cache-Control", "no-cache")
-        .body("")
+        .body(format!("{}", rng.gen_range(1..7)))
         .expect("Internal Server Error");
 
     Ok(response)
